@@ -17,8 +17,10 @@ public class QLayout: QLayoutRelationSet {
     }
     
     public func removeAllConstraints() {
-        for constraint in view.constraints {
-            view.removeConstraint(constraint)
+        for constraint in view.superview?.constraints ?? [] {
+            if (constraint.firstItem as? UIView) == view {
+                view.superview?.removeConstraint(constraint)
+            }
         }
     }
     
