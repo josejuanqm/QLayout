@@ -63,15 +63,9 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
                     NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: subItem, attribute: .right, multiplier: multiplier, constant: const)
                 ])
             }else {
-                if const != 0 {
-                    view.superview?.addConstraint(
-                        NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem, attribute: attribute, multiplier: multiplier, constant: const)
-                    )
-                }else {
-                    view.superview?.addConstraint(
-                        NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem ?? view.superview, attribute: attribute, multiplier: multiplier, constant: const)
-                    )
-                }
+                view.superview?.addConstraint(
+                    NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem ?? view.superview, attribute: attribute, multiplier: multiplier, constant: const)
+                )
             }
         }
     }
