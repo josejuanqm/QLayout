@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QLayout'
-  s.version          = '0.1.0'
+  s.version          = '0.2.0'
   s.summary          = 'A Swift Autolayout Utility for iOS'
 
   s.description      = <<-DESC
