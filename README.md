@@ -1,8 +1,5 @@
 QLayout is an Utility to make Auto Layout easy on iOS.
 
-[![Platform](https://img.shields.io/cocoapods/p/SnapKit.svg?style=flat)](https://github.com/SnapKit/QLayout)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/SnapKit.svg)](https://cocoapods.org/pods/QLayout)
-
 ## Contents
 
 - [Requirements](#requirements)
