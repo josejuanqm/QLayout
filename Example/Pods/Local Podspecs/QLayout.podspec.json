@@ -1,0 +1,22 @@
+{
+  "name": "QLayout",
+  "version": "0.1.0",
+  "summary": "A short description of QLayout.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/jose.juan.qm@gmail.com/QLayout",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jose.juan.qm@gmail.com": "jose.juan.qm@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jose.juan.qm@gmail.com/QLayout.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "QLayout/Classes/**/*"
+}

@@ -1,0 +1,6 @@
+framework module QLayout {
+  umbrella header "QLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}
