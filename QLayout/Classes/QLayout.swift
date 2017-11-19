@@ -16,7 +16,7 @@ public class QLayout: QLayoutRelationSet {
         self.view = view
     }
     
-    func removeAllConstraints() {
+    public func removeAllConstraints() {
         for constraint in view.constraints {
             view.removeConstraint(constraint)
         }
