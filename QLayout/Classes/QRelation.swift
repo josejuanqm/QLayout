@@ -47,19 +47,32 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
             
             view.translatesAutoresizingMaskIntoConstraints = false
             
-            if attribute.rawValue == -1 {
+            if relationItem.relation.type == .center {
+                if subItem != nil {
+                    view.layout.centerY.equalTo(subItem!.layout.centerY)
+                    view.layout.centerX.equalTo(subItem!.layout.centerX)
+                }else {
+                    view.layout.centerY.equalTo(constant)
+                    view.layout.centerX.equalTo(constant)
+                }
+            }else if attribute.rawValue == -1 {
                 view.superview?.addConstraints([
                     NSLayoutConstraint(item: view, attribute: .left, relatedBy: .equal, toItem: subItem, attribute: .left, multiplier: multiplier, constant: const),
                     NSLayoutConstraint(item: view, attribute: .top, relatedBy: .equal, toItem: subItem, attribute: .top, multiplier: multiplier, constant: const),
                     NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: subItem, attribute: .bottom, multiplier: multiplier, constant: const),
                     NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: subItem, attribute: .right, multiplier: multiplier, constant: const)
                 ])
-                return
+            }else {
+                if const != 0 {
+                    view.superview?.addConstraint(
+                        NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem, attribute: attribute, multiplier: multiplier, constant: const)
+                    )
+                }else {
+                    view.superview?.addConstraint(
+                        NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem ?? view.superview, attribute: attribute, multiplier: multiplier, constant: const)
+                    )
+                }
             }
-            
-            view.superview?.addConstraint(
-                NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem ?? view.superview, attribute: attribute, multiplier: multiplier, constant: const)
-            )
         }
     }
     
@@ -74,13 +87,14 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
             
             view.translatesAutoresizingMaskIntoConstraints = false
             
-            if attribute.rawValue == -1 {
-                return
+            if relation.relation.type == .center {
+                view.layout.centerY.equalTo(relation.view.layout.centerY)
+                view.layout.centerX.equalTo(relation.view.layout.centerX)
+            }else {
+                view.superview?.addConstraint(
+                    NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem, attribute: subItemRelation, multiplier: multiplier, constant: constant)
+                )
             }
-            
-            view.superview?.addConstraint(
-                NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem, attribute: subItemRelation, multiplier: multiplier, constant: constant)
-            )
         }
     }
     

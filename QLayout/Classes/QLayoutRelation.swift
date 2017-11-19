@@ -17,11 +17,18 @@ enum QLayoutRelationType {
     case bottom
     case width
     case height
+    case center
+    case centerX
+    case centerY
     
     var attributeValue: Int {
         switch self {
-        case .edges:
+        case .edges, .center:
             return -1
+        case .centerY:
+            return NSLayoutAttribute.centerY.rawValue
+        case .centerX:
+            return NSLayoutAttribute.centerX.rawValue
         case .left:
             return NSLayoutAttribute.left.rawValue
         case .top:
@@ -46,6 +53,9 @@ public class QLayoutRelation {
     static var bottom: QLayoutRelation = QLayoutRelation(.bottom)
     static var width: QLayoutRelation = QLayoutRelation(.width)
     static var height: QLayoutRelation = QLayoutRelation(.height)
+    static var center: QLayoutRelation = QLayoutRelation(.center)
+    static var centerX: QLayoutRelation = QLayoutRelation(.centerX)
+    static var centerY: QLayoutRelation = QLayoutRelation(.centerY)
     
     var type: QLayoutRelationType!
     

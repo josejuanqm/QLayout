@@ -13,18 +13,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let newView = UIView()
-        newView.backgroundColor = .black
-        view.addSubview(newView)
-        newView.layout.left.top.equalTo(20)
-        newView.layout.bottom.right.equalTo(-20)
-        let secondView = UIView()
-        
-        view.addSubview(secondView)
-        secondView.backgroundColor = .yellow
-        secondView.layout.left.top.equalTo(newView)
-        secondView.layout.bottom.right.equalTo(-100)
+        let box = UIView()
+        view.addSubview(box)
+        box.backgroundColor = .yellow
+        box.layout.center.equalTo(view)
+        box.layout.width.height.equalTo(50)
         
     }
 

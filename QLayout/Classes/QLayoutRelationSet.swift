@@ -19,6 +19,9 @@ public protocol QLayoutRelationSetProtocol {
     var bottom: Relation! { get }
     var width: Relation! { get }
     var height: Relation! { get }
+    var center: Relation! { get }
+    var centerY: Relation! { get }
+    var centerX: Relation! { get }
 }
 
 public class QLayoutRelationSet: QLayoutRelationSetProtocol {
@@ -29,6 +32,9 @@ public class QLayoutRelationSet: QLayoutRelationSetProtocol {
     public var bottom: Relation! { return Relation(with: view, and: .bottom, and: prevRelations) }
     public var width: Relation! { return Relation(with: view, and: .width, and: prevRelations) }
     public var height: Relation! { return Relation(with: view, and: .height, and: prevRelations) }
+    public var center: Relation! { return Relation(with: view, and: .center, and: prevRelations) }
+    public var centerY: Relation! { return Relation(with: view, and: .centerY, and: prevRelations) }
+    public var centerX: Relation! { return Relation(with: view, and: .centerX, and: prevRelations) }
     
     public var prevRelations: [Relation]! = []
     public var view: UIView!
