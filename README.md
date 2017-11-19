@@ -1,4 +1,4 @@
-#QLayout is an Utility to make Auto Layout easy on iOS.
+QLayout is an Utility to make Auto Layout easy on iOS.
 
 ## Contents
 
