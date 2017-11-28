@@ -33,7 +33,26 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
     }
     
     public func equalTo(_ value: CGFloat, multiplier: CGFloat = 1) {
-        addConstraints(for: value, multiplier: multiplier, constant: CGFloat.leastNonzeroMagnitude)
+        addConstraints(forConstant: value, multiplier: multiplier)
+    }
+    
+    func addConstraints(forConstant value: CGFloat, multiplier: CGFloat) {
+        for relationItem in prevRelations {
+            guard let attribute = NSLayoutAttribute(rawValue: relationItem.relation.type.attributeValue) else {
+                return
+            }
+            
+            var subItem: UIView? = nil
+            
+            if attribute != .height && attribute != .width {
+                subItem = view.superview
+            }
+            
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.superview?.addConstraint(
+                NSLayoutConstraint(item: view, attribute: attribute, relatedBy: .equal, toItem: subItem, attribute: attribute, multiplier: multiplier, constant: value)
+            )
+        }
     }
     
     func addConstraints(for value: QRelationable, multiplier: CGFloat, constant: CGFloat) {
