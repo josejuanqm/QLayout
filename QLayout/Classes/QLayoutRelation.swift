@@ -26,21 +26,21 @@ enum QLayoutRelationType {
         case .edges, .center:
             return -1
         case .centerY:
-            return NSLayoutAttribute.centerY.rawValue
+            return NSLayoutConstraint.Attribute.centerY.rawValue
         case .centerX:
-            return NSLayoutAttribute.centerX.rawValue
+            return NSLayoutConstraint.Attribute.centerX.rawValue
         case .left:
-            return NSLayoutAttribute.left.rawValue
+            return NSLayoutConstraint.Attribute.left.rawValue
         case .top:
-            return NSLayoutAttribute.top.rawValue
+            return NSLayoutConstraint.Attribute.top.rawValue
         case .right:
-            return NSLayoutAttribute.right.rawValue
+            return NSLayoutConstraint.Attribute.right.rawValue
         case .bottom:
-            return NSLayoutAttribute.bottom.rawValue
+            return NSLayoutConstraint.Attribute.bottom.rawValue
         case .width:
-            return NSLayoutAttribute.width.rawValue
+            return NSLayoutConstraint.Attribute.width.rawValue
         case .height:
-            return NSLayoutAttribute.height.rawValue
+            return NSLayoutConstraint.Attribute.height.rawValue
         }
     }
 }

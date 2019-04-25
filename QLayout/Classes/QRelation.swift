@@ -38,7 +38,7 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
     
     func addConstraints(forConstant value: CGFloat, multiplier: CGFloat) {
         for relationItem in prevRelations {
-            guard let attribute = NSLayoutAttribute(rawValue: relationItem.relation.type.attributeValue) else {
+            guard let attribute = NSLayoutConstraint.Attribute(rawValue: relationItem.relation.type.attributeValue) else {
                 return
             }
             
@@ -57,7 +57,7 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
     
     func addConstraints(for value: QRelationable, multiplier: CGFloat, constant: CGFloat) {
         for relationItem in prevRelations {
-            guard let attribute = NSLayoutAttribute(rawValue: relationItem.relation.type.attributeValue) else {
+            guard let attribute = NSLayoutConstraint.Attribute(rawValue: relationItem.relation.type.attributeValue) else {
                 return
             }
             
@@ -91,12 +91,12 @@ public class QRelation<T: QLayoutRelation>: QLayoutRelationSet, QRelationable {
     
     func addConstraints(for relation: Relation, multiplier: CGFloat, constant: CGFloat) {
         for relationItem in prevRelations {
-            guard let attribute = NSLayoutAttribute(rawValue: relationItem.relation.type.attributeValue) else {
+            guard let attribute = NSLayoutConstraint.Attribute(rawValue: relationItem.relation.type.attributeValue) else {
                 return
             }
             
             let subItem: UIView? = relation.view
-            let subItemRelation: NSLayoutAttribute = NSLayoutAttribute(rawValue: relation.relation.type.attributeValue)!
+            let subItemRelation: NSLayoutConstraint.Attribute = NSLayoutConstraint.Attribute(rawValue: relation.relation.type.attributeValue)!
             
             view.translatesAutoresizingMaskIntoConstraints = false
             
