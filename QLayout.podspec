@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'QLayout'
-  s.version          = '0.2.3'
+  s.version          = '0.3.0'
   s.summary          = 'A Swift Autolayout Utility for iOS'
 
   s.description      = <<-DESC
@@ -23,5 +23,4 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '8.0'
   s.source_files = 'QLayout/Classes/**/*'
-  s.module_map = 
 end
